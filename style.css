@@ -1,4 +1,4 @@
-* {
+main{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,12 +16,35 @@ header {
     color:white;
     padding: 15px;
     text-align: center;
-    position: sticky;
     top: 0;
+
 }
 
+
+/* Container to align items horizontally */
+.header-container {
+    display: flex;
+    align-items: center; /* Vertically centers logo and text */
+    justify-content: space-between; /* Pushes logo to left, nav to right */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style your logo */
+.header-logo {
+    height: 150px; /* Adjust size as needed */
+    width: auto;
+    border-radius: 8px; /* Optional: matches your theme */
+}
+
+
+
 h1{
+    margin:0;
     font-size: 60px;
+    font-weight: 1000;
+    -webkit-text-stroke: 5px #952929;
+
 }
 
 
@@ -42,7 +65,7 @@ nav a:hover{
 .soft-box{
     color:black;
     background-color: rgb(254, 149, 149);
-    padding:20px;
+    padding:4px;
     margin:10px;
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
@@ -91,7 +114,6 @@ section{
 }
 
 .hero img{
-    position: sticky;
     z-index: 1;
     transform:scale(2);
     object-fit: cover;
@@ -192,4 +214,262 @@ button{
     color:white;
     border: none;
     cursor: pointer;
+}
+
+/* ── Cute Memories Gallery ── */
+#memories {
+    background: white;
+    background-image: url("pattern.png");
+    background-size: 500px;
+    background-repeat: repeat;
+    animation: movePattern 5s linear infinite;
+    padding: 80px 40px;
+}
+
+.memories-title {
+    font-size: 52px;
+    font-weight: 950;
+    color: rgb(244, 67, 67);
+    -webkit-text-stroke: 1.5px black;
+    text-align: center;
+    margin-bottom: 8px;
+    animation: float 2s ease-in-out infinite;
+    display: inline-block;
+    width: 100%;
+}
+
+.memories-sub {
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 48px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-card {
+    background: rgb(254, 149, 149);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 14px 32px rgba(237, 76, 76, 0.3);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-caption {
+    background: rgb(254, 149, 149);
+    color: black;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 14px;
+    padding: 14px 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ── Post-it Notes Section ── */
+#postits {
+    padding: 80px 40px;
+    background: rgb(253, 225, 225);
+    text-align: center;
+}
+
+.postits-title {
+    font-size: 52px;
+    font-weight: 950;
+    color: rgb(244, 67, 67);
+    -webkit-text-stroke: 1.5px black;
+    margin-bottom: 8px;
+    animation: float 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+.postits-sub {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 52px;
+}
+
+.postit-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.postit {
+    position: relative;
+    background: var(--color);
+    border-radius: 4px;
+    padding: 44px 24px 32px;
+    transform: rotate(var(--rot));
+    box-shadow: 4px 6px 18px rgba(0,0,0,0.18);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.postit:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 8px 14px 30px rgba(0,0,0,0.22);
+    z-index: 2;
+}
+
+.postit-tape {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.postit p {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 500;
+    color: #333;
+    margin: 0 0 20px;
+}
+
+.postit-date {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 12px;
+    color: rgba(0,0,0,0.45);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Final Letter Section ── */
+#final-letter {
+    padding: 80px 40px;
+    background: rgb(126, 63, 63);
+    background-image: url("pattern.png");
+    background-size: 500px;
+    background-repeat: repeat;
+    animation: movePattern 5s linear infinite;
+    text-align: center;
+}
+
+.letter-title {
+    font-size: 52px;
+    font-weight: 950;
+    color: rgb(244, 67, 67);
+    -webkit-text-stroke: 1.5px black;
+    margin-bottom: 8px;
+    display: inline-block;
+    animation: float 2s ease-in-out infinite;
+}
+
+.letter-sub {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 64px;
+}
+
+.letter-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.letter-block {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.letter-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.letter-img-wrap {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0,5,0.05);
+}
+
+.letter-img-wrap img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.letter-img-wrap:hover img {
+    transform: scale(1.04);
+}
+
+.letter-text-wrap {
+    flex: 1;
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 6px 20px rgba(0, 0,0.05);
+    text-align: left;
+}
+
+.letter-text-wrap p {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.9;
+    color: #000000;
+    margin: 0;
+}
+
+.letter-signoff {
+    text-align: right;
+    padding: 20px 12px 0;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: #555;
+    font-size: 18px;
+}
+
+.letter-signoff h3 {
+    font-size: 36px;
+    font-weight: 950;
+    color: rgb(244, 67, 67);
+    -webkit-text-stroke: 1px black;
+    margin-top: 6px;
+}
+
+.new-letter-text-wrap {
+    flex: 1;
+    background: white;
+    border-radius: 16px;
+    padding: 2px;
+    margin: 50px;;
+    box-shadow: 0 6px 20px rgba(0, 0,0.05);
+    text-align: center;
 }
